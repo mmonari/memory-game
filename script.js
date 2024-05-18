@@ -22,7 +22,7 @@ function startGame() {
     homeScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
     matched = 0;
-    timeLeft = 60;
+    timeLeft = 10;
     timerDisplay.textContent = timeLeft;
     disableDeck = true;
     shuffleCard();
