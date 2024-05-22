@@ -50,6 +50,12 @@ body{
     align-items: center;
     justify-content: center;
 }
+.front-view{
+    background-image: url(images/que_icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+}
 .cards{
     height: 600px;
     width: 1200px;

@@ -4,7 +4,7 @@ const gameScreen = document.querySelector(".game-screen");
 const timeoutScreen = document.querySelector(".timeout-screen");
 const winScreen = document.querySelector(".win-screen");
 const startGameBtn = document.getElementById("start-game-btn");
-const restartBtn = document.getElementById("restart-btn");
+const restartBtn = document.querySelectorAll("#restart-btn, #restart-btn-win");
 const homeBtn = document.querySelectorAll("#home-btn, #home-btn-win");
 const timerDisplay = document.getElementById("timer");
 
@@ -15,14 +15,14 @@ let countdown;
 let timeLeft = 60;
 
 startGameBtn.addEventListener("click", startGame);
-restartBtn.addEventListener("click", restartGame);
+restartBtn.forEach(btn => btn.addEventListener("click", restartGame));
 homeBtn.forEach(btn => btn.addEventListener("click", goHome));
 
 function startGame() {
     homeScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
     matched = 0;
-    timeLeft = 10;
+    timeLeft = 20;
     timerDisplay.textContent = timeLeft;
     disableDeck = true;
     shuffleCard();
@@ -32,6 +32,7 @@ function startGame() {
 
 function restartGame() {
     timeoutScreen.classList.add("hidden");
+    winScreen.classList.add("hidden");
     startGame();
 }
 
@@ -64,10 +65,10 @@ function startCountdown() {
 
 function endGame(isWin) {
     disableDeck = true;
+    gameScreen.classList.add("hidden");
     if (isWin) {
         winScreen.classList.remove("hidden");
     } else {
-        gameScreen.classList.add("hidden");
         timeoutScreen.classList.remove("hidden");
     }
 }
