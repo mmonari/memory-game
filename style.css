@@ -1,14 +1,35 @@
-/* Import Google Font - Poppins */
-/* Now we have it locally at ./assets/Poppins/ */
+/* regular */
+@font-face {
+    font-family: 'Poppins';
+    src: url('vendor/Poppins/Poppins-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
+}
+/*  semibold */
+@font-face {
+    font-family: 'Poppins';
+    src: url('vendor/Poppins/Poppins-SemiBold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+}
+/* bold */
+@font-face {
+    font-family: 'Poppins';
+    src: url('vendor/Poppins/Poppins-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: bold;
+}
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+}
+
+strong {
+    font-weight: bold;
 }
 
 body{
