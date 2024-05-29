@@ -8,16 +8,22 @@
     <script src="vendor/tsparticles.confetti.bundle.min.js"></script>
 </head>
 <body>
-    <div class="home-screen">
-        <h1>Jogo da Memória AutoGlass</h1>
-        <p>Encontre 4 pares de cartas idênticas antes que o tempo acabe!</p>
-        <button id="start-game-btn">Entendido, vamos jogar!</button>
+    <div class="home-screen flex">
+        <h1>MEMÓRIA AUTOGLASS</h1>
+        <h2>ENCONTRE E GANHE!</h2>
+        <p>Teste seus conhecimentos e agilidade encontrando<br>
+          <strong>4 pares idênticos</strong> de produtos antes do tempo acabar.
+        </p>
+        <p>Mostre que você <strong>conhece nosso mix</strong> e ganhe um brinde exclusivo!</p>
+        <div class="group-btns">
+          <button id="start-game-btn"></button>
+        </div>
     </div>
 
-    <div class="game-screen hidden">
+    <div class="game-screen flex">
 
         <div class="header">
-            <div class="timer">Restam <span id="timer">60</span> segundos</div>
+            <div class="timer"><span id="timer">-</span></div>
         </div>
 
         <div class="wrapper">
@@ -221,16 +227,21 @@
     </div>
 
     <div class="timeout-screen hidden">
-        <h2>Acabou o tempo!</h2>
-        <button id="restart-btn">Jogar mais uma vez</button>
-        <button id="home-btn">Já valeu a pena</button>
-    </div>
+      <h1>#TENTEOUTRAVEZ</h1>
+      <p>Você está no caminho certo para encontrar todos os pares! Continue tentando e logo encontrará todos os pares. A <strong>recompensa exclusiva te espera</strong>. Boa sorte e continue jogando!</p><p></p>
+        <div class="group-btns">
+          <button id="restart-btn"></button>
+          <button id="home-btn"></button>
+        </div>
+    </div> 
 
     <div class="win-screen hidden">
-        <h2>Parabéns!! Você ganhou!!</h2>
-        <button id="restart-btn-win">Jogar mais uma vez</button>
-        <button id="home-btn-win">Já valeu a pena</button>
-
+        <h1>#MEMÓRIADECAMPEÃO</h1>
+        <p>Parabéns! Você encontrou todos os pares em tempo recorde!<br><strong>Sua memória e conhecimento dos nossos produtos</strong> são incríveis. <br>Aproveite seu brinde exclusivo e <strong>continue conectado com a Autoglass</strong>.</p>
+        <div class="group-btns">
+          <button id="restart-btn-win"></button>
+          <button id="home-btn-win"></button>
+        </div>
     </div>
 
     <script src="script.js"></script>

@@ -25,10 +25,14 @@ function randomInRange(min, max) {
 
 function startGame() {
     homeScreen.classList.add("hidden");
+    homeScreen.classList.remove("flex");
+    
     gameScreen.classList.remove("hidden");
+    gameScreen.classList.add("flex");
+
     matched = 0;
-    timeLeft = 5;
-    timerDisplay.textContent = timeLeft;
+    timeLeft = 60;
+    timerDisplay.textContent = formatTime(timeLeft);
     disableDeck = true;
     shuffleCard();
     setTimeout(flipAllCards, 0);
@@ -38,15 +42,22 @@ function startGame() {
 
 function restartGame() {
     timeoutScreen.classList.add("hidden");
+    timeoutScreen.classList.remove("flex");
+
     winScreen.classList.add("hidden");
+    winScreen.classList.remove("flex");
     startGame();
 }
 
 function goHome() {
     timeoutScreen.classList.add("hidden");
+    timeoutScreen.classList.remove("flex");
     winScreen.classList.add("hidden");
+    winScreen.classList.remove("flex");
     gameScreen.classList.add("hidden");
+    gameScreen.classList.remove("flex");
     homeScreen.classList.remove("hidden");
+    homeScreen.classList.add("flex");
     clearInterval(countdown);
 }
 
@@ -61,23 +72,31 @@ function flipAllCards() {
 function startCountdown() {
     countdown = setInterval(() => {
         timeLeft--;
-        timerDisplay.textContent = timeLeft;
+        timerDisplay.textContent = formatTime(timeLeft);
         if (timeLeft <= 0) {
             clearInterval(countdown);
             endGame(false);
         }
     }, 1000);
 }
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+}
 
 function endGame(isWin) {
     disableDeck = true;
     gameScreen.classList.add("hidden");
+    gameScreen.classList.remove("flex");
     
     if (isWin) {
         winScreen.classList.remove("hidden");
+        winScreen.classList.add("flex");
         explodeConfetti();
     } else {
         timeoutScreen.classList.remove("hidden");
+        timeoutScreen.classList.add("flex");
         
     }
 }

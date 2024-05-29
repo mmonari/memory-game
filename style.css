@@ -9,36 +9,143 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    color: #74d6ff;
 }
+
 body{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    min-width: 100vw;
     background: #003287;
+}
+
+h1 {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+}
+p {
+    max-width: 1240px;
+    font-size: 2rem;
+    text-wrap: pretty;
 }
 .header {
     display: flex;
-    width: 100%;
-    justify-content: end;
+    width: 200px;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    z-index: 100;
+    color: #00298E;
+    font-size: 1.5rem;
+    span {
+        color: #F07204;
+        font-weight: semibold;
+        font-size: 4rem;
+    }
 }
+
 .hidden {
     display: none;
 }
-.home-screen, .timeout-screen, .win-screen {
-    text-align: center;
+.flex {
+    display: flex;
 }
-.home-screen button, .timeout-screen button, .win-screen button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: none;
-    background: #183884; 
+
+.group-btns{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    button {
+        background-size: 100% 100%;
+        cursor: pointer;
+        width: 339px;
+        height: 73px;
+        border: none;
+    }
+}
+
+#start-game-btn {
+    background: url(images/start-game-btn.png) no-repeat center ;
+    width: 345px;
+}
+#restart-btn, #restart-btn-win {
+    background: url(images/restart-btn.png) no-repeat center;
+}
+#home-btn, #home-btn-win {
+    background: url(images/home-btn.png) no-repeat center;
+}
+
+.home-screen, .game-screen, .timeout-screen, .win-screen {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 100vh;
+    min-width: 100vw;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* fade in and out animations */
+    animation: fadeIn 1s, fadeOut 0.5s 5.5s;
+    animation-fill-mode: forwards;
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+}
+
+.home-screen{
+    background-image: url(images/home-screen-background.png);
+    color:#00298E;
+    h1{
+        min-width: 1280px;
+    }
+    h2 {
+        color: #F07204;
+        font-weight: semibold;
+        font-size: 2.75rem;
+        line-height: 2.75rem;
+        min-width: 1280px;
+        margin-bottom: 4rem;
+    }
+    p {
+        min-width: 1280px;
+        margin-bottom: 1rem;
+    }
+    .group-btns{
+        margin-top: 4rem;
+        min-width: 1280px;
+        justify-content: end;
+        padding-right: 6rem;
+    }
+}
+
+.game-screen{
+    background-image: url(images/game-screen-background.png);
     color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    min-width: 256px;
+    position: relative;
 }
+.timeout-screen, .win-screen {
+    background-image: url(images/message-display-background.png);
+    color: #fff;
+    gap: 60px;
+}
+
 .wrapper{
     padding: 25px;
     border-radius: 10px;
